@@ -9,6 +9,22 @@ agli Input bisogna sempre assegnare un tipo.
 avatar = input();
 input<string>(); -> eventualmente puo essere ricevuta una stringa
 non abbiamo piu bisogno di !, perche con required non abbiamo bisogno di un initial value
-gli inputsignals sono readonly, non è possibile usare il metodo set();
 
-perchè usare inputsignals? beh non ci sono motivi, anche perche la maggior parte delle business ancora non le usa, meglio usare gli input
+INPUT SIGNALS
+gli inputsignals sono readonly, non è possibile usare il metodo set();
+perchè usare inputsignals? beh non ci sono motivi, anche perche la maggior parte delle business ancora non le usa, meglio usare i decoratori input
+
+@OUTPUT
+permette di passare il valore all'interno, ad altri component figli
+
+$event è una variabile di angular che viene usata nel template che mantiene i dati emessi dagli eventi che stai ascoltado.
+funziona solo se nel componente figlio che si trova nel padre, abbiamo usato un eventemitter
+
+output
+con output (non @Output)
+output<string>(); bisogna specificare il tipo di valore emesso -> nmon vengono creati segnali, ma abbiamo un customevent che possiamo emettere.
+in ogni caso @Output è piu diffuso perchè è arrivato prima.
+seleziona = output<string>();
+
+
+

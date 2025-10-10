@@ -17,5 +17,9 @@ export class App {
   protected readonly title = signal('dashboard-app');
 
   users = DUMMY_USERS;
+
+  onSelUser(id: string) {
+    console.log('selected user with id:' + id);
+  }
 }
 
