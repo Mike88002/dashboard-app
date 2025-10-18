@@ -2,6 +2,17 @@ import {Component, Input, input, computed, Output, EventEmitter, output} from '@
 import { DUMMY_USERS } from '../dummy-users';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
+/*type Utente = {
+  id: string;
+  avatar: string;
+  name: string;
+}*/
+
+interface Utente {
+  id: string;
+  name: string;
+  avatar: string;
+}
 
 @Component({
   selector: 'app-user',
@@ -27,9 +38,8 @@ export class User {
     this.selectedUser.set(DUMMY_USERS[randomIndex])
   }*/
 
-  @Input({required: true}) avatar!: string;
-  @Input({required: true}) name!: string;
-  @Input({required: true}) id!:string;
+  @Input({ required: true }) user!: Utente;
+
   // output puo ricevere un valore iniziale
   @Output() select = new EventEmitter();
 
@@ -45,9 +55,9 @@ export class User {
 
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
   onSelectUser() {
-    this.select.emit(this.id)
+    this.select.emit(this.user.id)
   }
 }
