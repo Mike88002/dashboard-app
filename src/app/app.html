@@ -1,18 +1,24 @@
 <app-header></app-header>
 <main>
   <ul id="users">
-    <li>
-      <app-user [id]="users[0].id" [user]="users[0]" (select)="onSelUser($event)"/>
-    </li>
-    <li>
-      <app-user [id]="users[1].id" [user]="users[1]" (seleziona)="onSelUser($event)"/>
-    </li>
-    <li>
-      <app-user [id]="users[3].id" [user]="users[3]" (select)="onSelUser($event)"/>
-    </li>
-    <li>
-      <app-user [id]="users[2].id" [user]="users[2]" (select)="onSelUser($event)"/>
-    </li>
+    @for (user of users; track user.id) {
+      <li >
+        <app-user [user]="user" (select)="onSelUser($event)"/>
+      </li>
+    }
   </ul>
-  <app-tasks [name]="selectedUser ? selectedUser.name : '' " />
+  <!--      <li *ngFor="let user of users;">-->
+  <!--        <app-user [user]="user" (select)="onSelUser($event)"/>-->
+  <!--      </li>-->
+  @if (selectedUser) {
+    <app-tasks [userId]="selectedUser.id" [name]="selectedUser!.name"/>
+  } @else {
+    <p id="fallback"> Select a user please!</p>
+  }
+
+<!--    <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name"/>-->
+<!--    <ng-template #fallback>-->
+
+<!--      <p id="fallback"> Select a user please!</p>-->
+<!--    </ng-template>-->
 </main>

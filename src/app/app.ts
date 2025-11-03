@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
 import { User } from './user/user';
@@ -10,7 +10,7 @@ import {Tasks} from './tasks/tasks';
   imports: [
     Header,
     User,
-    Tasks
+    Tasks,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -20,7 +20,7 @@ export class App {
   protected readonly title = signal('dashboard-app');
 
   users = DUMMY_USERS;
-  selectedUserId = 'm1';
+  selectedUserId?: string;
 
   get selectedUser() {
     return this.users.find((user) => user.id === this.selectedUserId);

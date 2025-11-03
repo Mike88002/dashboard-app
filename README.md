@@ -27,4 +27,6 @@ in ogni caso @Output è piu diffuso perchè è arrivato prima.
 seleziona = output<string>();
 
 
-
+structural directments:
+nfor, rxfor etc ...
+nelle versioni nuove di angular, si tende ad usare @for e @if.
