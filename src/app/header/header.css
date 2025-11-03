@@ -10,9 +10,9 @@ header {
   margin: 0 auto 2rem auto;
   text-align: center;
   background: linear-gradient(
-    to bottom,
-    #2c0a4c,
-    #450d80
+    to left,
+    #ff1400,
+    #ffffff
   );
   padding: 1rem;
   border-bottom-right-radius: 12px;
