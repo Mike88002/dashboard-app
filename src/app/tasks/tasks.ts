@@ -47,4 +47,8 @@ export class Tasks {
       this.tasks = this.tasks.filter((task) => task.id !== id );
   }
 
+  onTaskAdded() {
+
+  }
+
 }

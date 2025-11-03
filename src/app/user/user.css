@@ -10,8 +10,8 @@ button {
   gap: 0.5rem;
   padding: 0.35rem 0.5rem;
   background: linear-gradient(
-    to left,
-    #ff1400,
+    to right,
+    #1d0849,
     #ffffff
   );
   border: none;
@@ -25,7 +25,7 @@ button {
 button:hover,
 button:active,
 .active {
-  background-color: #9965dd;
+  background-color: #ffffff;
   color: #150722;
 }
 
