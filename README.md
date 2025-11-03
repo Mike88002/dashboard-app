@@ -30,3 +30,6 @@ seleziona = output<string>();
 structural directments:
 nfor, rxfor etc ...
 nelle versioni nuove di angular, si tende ad usare @for e @if.
+
+
+ngmodel aggiunge funzionalita extra ai tag input
