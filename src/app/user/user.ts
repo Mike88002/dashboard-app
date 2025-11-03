@@ -40,6 +40,8 @@ export class User {
 
   @Input({ required: true }) user!: Utente;
 
+  @Input({ required: true }) selected!: boolean;
+
   // output puo ricevere un valore iniziale
   @Output() select = new EventEmitter();
 

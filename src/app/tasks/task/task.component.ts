@@ -1,4 +1,13 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+
+// custom type definition
+interface Task {
+  id: string;
+  userId: string;
+  title: string;
+  summary: string;
+  dueDate: string;
+}
 
 @Component({
   selector: 'app-task',
@@ -8,5 +17,12 @@ import { Component } from '@angular/core';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
+
+  @Input({ required: true }) task!: Task;
+  @Output() complete = new EventEmitter<string>();
+
+  completedTask() {
+    this.complete.emit(this.task.id);
+  }
 
 }
