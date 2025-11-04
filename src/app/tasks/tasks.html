@@ -16,5 +16,5 @@
 </section>
 
 @if (isAddingTask) {
-    <app-new-task (cancel)="onDialogClosing()"/>
+    <app-new-task (cancel)="onDialogClosing()" (addEvent)="onAddNewTask($event)"/>
 }

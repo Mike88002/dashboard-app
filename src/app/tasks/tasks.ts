@@ -59,4 +59,17 @@ export class Tasks {
     this.isAddingTask = false;
   }
 
+  onAddNewTask(taskData: {title: string; summary: string; date: string}) {
+    this.tasks.push({
+      id: new Date().getTime().toString(),
+      userId: this.userId,
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date
+    });
+    console.log(this.tasks);
+
+    this.isAddingTask = false;
+  }
+
 }
