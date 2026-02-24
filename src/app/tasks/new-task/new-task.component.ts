@@ -1,6 +1,10 @@
 import {Component, EventEmitter, Output, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
+export interface NewTaskData {
+  title: string; summary: string; date: string;
+}
+
 @Component({
   selector: 'app-new-task',
   standalone: true,
