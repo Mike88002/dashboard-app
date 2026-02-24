@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CardComponent} from '../../shared/card/card.component';
 
 // custom type definition
 interface Task {
@@ -12,7 +13,9 @@ interface Task {
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [],
+  imports: [
+    CardComponent
+  ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
