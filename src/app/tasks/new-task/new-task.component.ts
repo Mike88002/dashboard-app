@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Output, signal} from '@angular/core';
+import {Component, EventEmitter, inject, Output, Input, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {TasksService} from '../tasks.service';
 
 export interface NewTaskData {
   title: string; summary: string; date: string;
@@ -15,28 +16,30 @@ export interface NewTaskData {
   styleUrl: './new-task.component.css'
 })
 export class NewTaskComponent {
+  private tasksService = inject(TasksService);
 
 // how to do the same using signals:
 //   enteredTitle = signal('');
 //   enteredSummary = signal('');
 //   enteredDate = signal('');
-
-  @Output() cancel = new EventEmitter();
+  @Input({required:true}) userId!: string;
+  @Output() close = new EventEmitter();
   @Output() addEvent = new EventEmitter<NewTaskData>();
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
 
   onCancel() {
-    this.cancel.emit();
+    this.close.emit();
   }
 
   onSubmit() {
-      this.addEvent.emit({
+      this.tasksService.addTask({
         title: this.enteredTitle,
+        summary: this.enteredSummary,
         date: this.enteredDate,
-        summary: this.enteredSummary
-      });
+      }, this.userId);
+      this.close.emit();
   }
 
 }

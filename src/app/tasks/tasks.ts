@@ -25,21 +25,13 @@ export class Tasks {
     return this.tasksService.getUserTask(this.userId);
   }
 
-  onCompletedTask(id: string) {
-    this.tasksService.removeTask(id)
-  }
+
 
   onStartAddTask() {
       this.isAddingTask = true;
   }
 
-  onDialogClosing() {
+  onCloseAddTask() {
     this.isAddingTask = false;
   }
-
-  onAddNewTask(taskData: NewTaskData) {
-    this.tasksService.addTask(taskData, this.userId)
-    this.isAddingTask = false;
-  }
-
 }
