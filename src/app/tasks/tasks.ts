@@ -1,30 +1,32 @@
 import {Component, Input} from '@angular/core';
 import {TaskComponent} from './task/task.component';
-import { NewTaskData} from './new-task/new-task.component';
-
+import {NewTaskComponent, NewTaskData} from './new-task/new-task.component';
+import {TasksService as TasksService} from './tasks.service';
 @Component({
   selector: 'app-tasks',
   imports: [
     TaskComponent,
+    NewTaskComponent,
   ],
   templateUrl: './tasks.html',
   styleUrl: './tasks.css'
 })
 export class Tasks {
 
-  @Input({ required: true }) name: string | undefined;
+  //the constructor is automatically executed. this is how dependency injection works
+  constructor(private tasksService: TasksService) {}
+
   @Input({ required: true }) userId!: string;
+  @Input({ required: true }) name: string | undefined;
 
   isAddingTask= false;
 
-
-
   get selectedUserTasks(){
-    return
+    return this.tasksService.getUserTask(this.userId);
   }
 
   onCompletedTask(id: string) {
-
+    this.tasksService.removeTask(id)
   }
 
   onStartAddTask() {
@@ -36,7 +38,7 @@ export class Tasks {
   }
 
   onAddNewTask(taskData: NewTaskData) {
-
+    this.tasksService.addTask(taskData, this.userId)
     this.isAddingTask = false;
   }
 

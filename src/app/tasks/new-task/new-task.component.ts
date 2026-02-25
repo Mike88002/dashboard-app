@@ -22,7 +22,7 @@ export class NewTaskComponent {
 //   enteredDate = signal('');
 
   @Output() cancel = new EventEmitter();
-  @Output() addEvent = new EventEmitter<{title: string; summary: string; date: string}>();
+  @Output() addEvent = new EventEmitter<NewTaskData>();
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
