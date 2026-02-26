@@ -1,6 +1,5 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { App } from './app/app';
-import {Header} from './app/header/header';
+import { platformBrowser } from '@angular/platform-browser';
+import { AppModule} from './app/app.module';
 
-bootstrapApplication(App)
-  .catch((err) => console.error(err));
+//that's how to start an applications that uses modules
+platformBrowser().bootstrapModule(AppModule);
