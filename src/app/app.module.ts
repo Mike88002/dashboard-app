@@ -6,18 +6,16 @@ import {FormsModule} from '@angular/forms';
 
 import {Header} from './header/header';
 import {User} from './user/user';
-import {Tasks} from './tasks/tasks';
-import {CardComponent} from './shared/card/card.component';
-import {NewTaskComponent} from './tasks/new-task/new-task.component';
-import {TaskComponent} from './tasks/task/task.component';
+import {SharedModule} from './shared/sharedModule';
+import {TasksModule} from './tasks/tasksModule';
 
 // takes a configuration object to configure the module
 @NgModule({
   //declare and register all the components
   //not for standalone components
-  declarations: [App, Header, User, CardComponent, Tasks, NewTaskComponent, TaskComponent],
+  declarations: [App, Header, User],
   bootstrap: [App],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, SharedModule, TasksModule],
 })
 export class AppModule {
 
